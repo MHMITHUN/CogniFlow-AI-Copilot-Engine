@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CogniFlow — Enterprise AI Governance & Safety Platform | Junior PM Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ==========================================================================
+       HALLMARK DESIGN SYSTEM: EDITORIAL ENTERPRISE AI PLATFORM
+       Two-Column Product Architecture: Left = Governance Studio, Right = Executive PRD
+       ========================================================================== */
+    :root {
+      --bg-page: #0b0f15;
+      --bg-surface: #121822;
+      --bg-surface-elevated: #1a2230;
+      --bg-card: #0e141d;
+      
+      --text-main: #f1f5f9;
+      --text-body: #cbd5e1;
+      --text-muted: #64748b;
+      --text-faint: #334155;
+
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-medium: rgba(255, 255, 255, 0.16);
+
+      /* Semantic Accents */
+      --accent-blue: #38bdf8;
+      --accent-blue-bg: rgba(56, 189, 248, 0.12);
+
+      --accent-teal: #2dd4bf;
+      --accent-teal-bg: rgba(45, 212, 191, 0.12);
+
+      --accent-warm: #f59e0b;
+      --accent-warm-bg: rgba(245, 158, 11, 0.12);
+
+      --accent-purple: #c084fc;
+      --accent-purple-bg: rgba(192, 132, 252, 0.12);
+
+      --accent-danger: #ef4444;
+      --accent-danger-bg: rgba(239, 68, 68, 0.12);
+
+      --font-display: "Newsreader", Georgia, serif;
+      --font-ui: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background-color: var(--bg-page);
+      color: var(--text-body);
+      font-family: var(--font-ui);
+      font-size: 15px;
+      line-height: 1.65;
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 24px;
+      box-sizing: border-box;
+    }
+
+    /* Minimal Top Navigation */
+    .nav {
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(11, 15, 21, 0.92);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav-inner {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 15px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--accent-blue);
+    }
+
+    .nav-meta-desktop {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-meta-mobile {
+      display: none;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 48px 0 32px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-blue);
+      background: var(--accent-blue-bg);
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 38px;
+      line-height: 1.25;
+      color: var(--text-main);
+      font-weight: 400;
+      margin-bottom: 14px;
+      max-width: 900px;
+    }
+
+    .hero-lead {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-body);
+      max-width: 860px;
+      margin-bottom: 24px;
+    }
+
+    .stats-row {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      padding-top: 8px;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-number {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* 2-Column Product Layout */
+    .simulator-layout {
+      display: grid;
+      grid-template-columns: 460px minmax(0, 1fr);
+      gap: 48px;
+      padding: 44px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      align-items: start;
+    }
+
+    .simulator-layout > div {
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* ==========================================================================
+       ENTERPRISE GOVERNANCE STUDIO FRAME (LEFT COLUMN)
+       ========================================================================== */
+    .studio-shell {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      height: auto;
+      max-height: none;
+      overflow: visible;
+      box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.7);
+      position: sticky;
+      top: 80px;
+      width: 100%;
+      max-width: 460px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    /* Completely eliminate all scrollbars on studio shell and tables */
+    .studio-shell,
+    .studio-shell *,
+    .table-responsive,
+    .no-scrollbar {
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+    }
+
+    .studio-shell::-webkit-scrollbar,
+    .studio-shell *::-webkit-scrollbar,
+    .table-responsive::-webkit-scrollbar,
+    .no-scrollbar::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+      background: transparent !important;
+    }
+
+    .studio-shell-header {
+      padding: 12px 16px;
+      background: rgba(14, 20, 29, 0.95);
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--border-medium);
+    }
+
+    /* Studio Tab Bar */
+    .studio-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+    }
+
+    .studio-tab-btn {
+      flex: 1;
+      padding: 10px 8px;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--text-muted);
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .studio-tab-btn:hover {
+      color: var(--text-main);
+    }
+
+    .studio-tab-btn.active {
+      color: var(--accent-blue);
+      border-bottom-color: var(--accent-blue);
+      background: var(--bg-surface);
+    }
+
+    .studio-body {
+      padding: 16px;
+    }
+
+    /* Template Prompt Chips */
+    .template-chip {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      padding: 6px 12px;
+      font-size: 11px;
+      color: var(--text-body);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      line-height: 1.35;
+      word-break: break-word;
+    }
+
+    .template-chip:hover {
+      border-color: var(--accent-blue);
+      color: #fff;
+    }
+
+    /* Textarea & Inputs */
+    .input-textarea {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      color: var(--text-main);
+      font-family: var(--font-ui);
+      font-size: 13px;
+      line-height: 1.5;
+      outline: none;
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    .input-textarea:focus {
+      border-color: var(--accent-blue);
+    }
+
+    /* Guardrail Inspection Card */
+    .guardrail-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      margin-top: 12px;
+    }
+
+    .guardrail-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .highlight-amber {
+      background: var(--accent-warm-bg);
+      color: #f59e0b;
+      border-bottom: 1px dashed var(--accent-warm);
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-weight: 500;
+    }
+
+    .highlight-blue {
+      background: var(--accent-blue-bg);
+      color: #38bdf8;
+      border-bottom: 1px dashed var(--accent-blue);
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+    }
+
+    /* Policy Configurator Styles */
+    .policy-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      gap: 12px;
+    }
+    .policy-row > div:first-child {
+      flex: 1;
+      min-width: 0;
+    }
+    .policy-row:last-child {
+      border-bottom: none;
+    }
+
+    /* Audit Table */
+    .audit-mini-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+    }
+    .audit-mini-table th {
+      text-align: left;
+      padding: 6px 8px;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .audit-mini-table td {
+      padding: 6px 8px;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-body);
+    }
+
+    /* ==========================================================================
+       RIGHT COLUMN: EXECUTIVE PRD & AI STRATEGY CASE STUDY
+       ========================================================================== */
+    .article-block {
+      margin-bottom: 38px;
+    }
+
+    .article-title {
+      font-family: var(--font-display);
+      font-size: 25px;
+      color: var(--text-main);
+      font-weight: 400;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .article-text {
+      color: var(--text-body);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .table-responsive {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      display: block !important;
+      box-sizing: border-box !important;
+      margin: 16px 0 !important;
+      border-radius: var(--radius-md) !important;
+      scrollbar-width: none !important;
+    }
+
+    .table-responsive::-webkit-scrollbar {
+      display: none !important;
+    }
+
+    .clean-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin: 0;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      min-width: 540px;
+    }
+
+    .clean-table th {
+      text-align: left;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .clean-table td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-body);
+      vertical-align: top;
+    }
+
+    .clean-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Sprint Roadmap Grid */
+    .sprint-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .sprint-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px;
+    }
+
+    .sprint-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .sprint-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .sprint-list {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      list-style-type: none;
+    }
+    .sprint-list li {
+      margin-bottom: 4px;
+      position: relative;
+      padding-left: 12px;
+    }
+    .sprint-list li::before {
+      content: "•";
+      color: var(--accent-blue);
+      position: absolute;
+      left: 0;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 36px 0;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .simulator-layout {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        gap: 36px !important;
+        padding: 24px 0 !important;
+      }
+      .simulator-layout > div {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+      }
+      .studio-shell {
+        position: static !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        border-radius: 14px !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+      }
+      .sprint-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 16px !important;
+      }
+      .nav-meta-desktop {
+        display: none;
+      }
+      .nav-meta-mobile {
+        display: inline-flex;
+        align-items: center;
+        font-size: 11px;
+        color: var(--accent-blue);
+        background: var(--accent-blue-bg);
+        padding: 4px 10px;
+        border-radius: var(--radius-pill);
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .brand-subtitle {
+        display: none;
+      }
+      .hero {
+        padding: 28px 0 20px 0;
+      }
+      .hero-title {
+        font-size: 25px;
+        line-height: 1.3;
+        margin-bottom: 12px;
+      }
+      .hero-lead {
+        font-size: 14.5px;
+        line-height: 1.6;
+        margin-bottom: 18px;
+      }
+      .stats-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .stat-number {
+        font-size: 20px;
+      }
+      .stat-label {
+        font-size: 11px;
+      }
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 24px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stats-row {
+        grid-template-columns: 1fr;
+      }
+      .studio-shell {
+        border-radius: 10px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <div class="brand-mark">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <span>CogniFlow <span class="brand-subtitle">— Enterprise AI Governance</span></span>
+      </a>
+
+      <div class="nav-meta-desktop">
+        <span>Product Manager: <strong>MD. Mahamudul Hasan</strong></span>
+        <span>•</span>
+        <span>Interactive AI Studio &amp; PRD Case Study</span>
+      </div>
+      <div class="nav-meta-mobile">
+        <span>PM Case Study</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero">
+    <div class="container">
+      <span class="hero-tag">
+        <i class="fa-solid fa-circle-check" style="font-size: 10px;"></i> Enterprise AI Product Case Study
+      </span>
+      <h1 class="hero-title">
+        CogniFlow: Enterprise AI Governance, Grounding Checks &amp; Human-in-the-Loop Review Gates.
+      </h1>
+      <p class="hero-lead">
+        While foundation LLMs offer incredible productivity, unconstrained enterprise deployment triggers severe risks: leaking customer PII to external APIs, hallucinations creating brand liability, and autonomous high-value financial actions. CogniFlow deploys pre-flight regex/NER masking, vector grounding confidence scoring, and strict Human-in-the-Loop review gates.
+      </p>
+
+      <div class="stats-row">
+        <div class="stat-item">
+          <span class="stat-number">0.00%</span>
+          <span class="stat-label">Customer PII Leakage Rate to External LLMs</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">96.2%</span>
+          <span class="stat-label">Hallucinated Claim Interception Rate</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">&lt; 35s</span>
+          <span class="stat-label">Human Review Cycle Time on High-Stakes Actions</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">SOC2 &amp; GDPR Audit Trail Coverage</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main 2-Column Section -->
+  <main class="container">
+    <div class="simulator-layout">
+
+      <!-- =====================================================================
+           COLUMN 1: THE ENTERPRISE AI GOVERNANCE STUDIO
+           ===================================================================== -->
+      <div>
+        <div class="studio-shell">
+          <!-- Window Header -->
+          <div class="studio-shell-header">
+            <div class="window-dots">
+              <span class="dot" style="background: #ef4444;"></span>
+              <span class="dot" style="background: #f59e0b;"></span>
+              <span class="dot" style="background: #10b981;"></span>
+            </div>
+            <div style="font-size: 11px; font-family: var(--font-mono); color: var(--text-muted); display: flex; align-items: center; gap: 6px;">
+              <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-blue);"></span>
+              CogniFlow Engine v2.4 • Active
+            </div>
+          </div>
+
+          <!-- Studio Tabs -->
+          <div class="studio-tabs">
+            <button id="tab-btn-studio" class="studio-tab-btn active" onclick="switchStudioTab('studio')">
+              <i class="fa-solid fa-terminal"></i> AI Studio
+            </button>
+            <button id="tab-btn-policy" class="studio-tab-btn" onclick="switchStudioTab('policy')">
+              <i class="fa-solid fa-sliders"></i> Policy Configurator
+            </button>
+            <button id="tab-btn-audit" class="studio-tab-btn" onclick="switchStudioTab('audit')">
+              <i class="fa-solid fa-list-check"></i> Audit Log
+            </button>
+          </div>
+
+          <!-- TAB 1: AI STUDIO -->
+          <div id="tab-content-studio" class="studio-body">
+            <!-- Enterprise Scenario Template Chips -->
+            <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 6px;">Select Enterprise Operational Test:</label>
+            <div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px;">
+              <div class="template-chip" onclick="loadPromptTemplate('pii')">
+                <i class="fa-solid fa-user-shield" style="color: var(--accent-blue);"></i>
+                <span>1. Customer Support Ticket with Phone PII</span>
+              </div>
+              <div class="template-chip" onclick="loadPromptTemplate('hallucination')">
+                <i class="fa-solid fa-triangle-exclamation" style="color: var(--accent-warm);"></i>
+                <span>2. Marketing Announcement (Unverified Fake Claim)</span>
+              </div>
+              <div class="template-chip" onclick="loadPromptTemplate('budget')">
+                <i class="fa-solid fa-file-invoice-dollar" style="color: var(--accent-purple);"></i>
+                <span>3. High-Value Financial Refund Action (BDT 25,000)</span>
+              </div>
+            </div>
+
+            <!-- Prompt Box -->
+            <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 4px;">User / Customer Prompt:</label>
+            <textarea id="prompt-input-area" class="input-textarea" placeholder="Type prompt or select template above..."></textarea>
+
+            <button type="button" onclick="runInspection()" style="margin-top: 8px; width: 100%; background: var(--accent-blue); color: #000; font-weight: 700; font-size: 12px; padding: 9px; border: none; border-radius: var(--radius-sm); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;">
+              <i class="fa-solid fa-play" style="font-size: 10px;"></i> Run AI Guardrail Inspection
+            </button>
+
+            <!-- Real-Time Inspection Results -->
+            <div id="inspection-results-area" style="display: none;">
+              <!-- Guardrail Card -->
+              <div class="guardrail-card">
+                <div class="guardrail-header">
+                  <span style="font-size: 11px; font-weight: 700; color: #fff;">
+                    <i class="fa-solid fa-microchip" style="color: var(--accent-blue);"></i> Model Output &amp; Inspection
+                  </span>
+                  <span id="risk-badge" style="font-size: 10px; padding: 2px 8px; border-radius: var(--radius-pill); font-weight: 600;">
+                    Inspecting...
+                  </span>
+                </div>
+
+                <!-- Response Text -->
+                <div id="model-output-text" style="font-size: 12.5px; line-height: 1.6; color: var(--text-body); background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 10px; margin-bottom: 10px;"></div>
+
+                <!-- Guardrail Findings -->
+                <div id="findings-box" style="font-size: 11px; line-height: 1.6; background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 10px; margin-bottom: 10px;"></div>
+
+                <!-- Human Gate Actions -->
+                <div id="human-gate-controls" style="display: flex; gap: 8px;">
+                  <button type="button" onclick="approveAudit('Approved')" style="flex: 1; background: var(--accent-teal); color: #000; font-weight: 700; font-size: 11px; padding: 7px; border: none; border-radius: 4px; cursor: pointer;">
+                    <i class="fa-solid fa-check"></i> Sign-off &amp; Approve
+                  </button>
+                  <button type="button" onclick="approveAudit('Rejected')" style="flex: 1; background: var(--bg-surface-elevated); color: var(--text-muted); font-weight: 600; font-size: 11px; padding: 7px; border: 1px solid var(--border-subtle); border-radius: 4px; cursor: pointer;">
+                    <i class="fa-solid fa-ban"></i> Reject / Intercept
+                  </button>
+                </div>
+
+                <!-- Audit Confirmation Banner -->
+                <div id="audit-confirm-banner" style="display: none; margin-top: 8px; padding: 8px; background: var(--accent-teal-bg); border: 1px solid rgba(45, 212, 191, 0.3); border-radius: 4px; font-size: 11px; color: var(--accent-teal); text-align: center;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: POLICY CONFIGURATOR (PM CONTROL ROOM) -->
+          <div id="tab-content-policy" class="studio-body" style="display: none;">
+            <div style="font-size: 12px; font-weight: 600; color: #fff; margin-bottom: 4px;">
+              Enterprise Guardrail Policy Rules
+            </div>
+            <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 14px;">
+              Configure automated interception thresholds for LLM interactions.
+            </div>
+
+            <div class="policy-row">
+              <div>
+                <div style="font-size: 12px; font-weight: 600; color: #fff;">Pre-Flight PII Redaction</div>
+                <div style="font-size: 10.5px; color: var(--text-muted);">Auto-mask phone numbers, NID, and bank credentials.</div>
+              </div>
+              <input type="checkbox" id="policy-pii" checked style="accent-color: var(--accent-blue); transform: scale(1.2);">
+            </div>
+
+            <div class="policy-row">
+              <div>
+                <div style="font-size: 12px; font-weight: 600; color: #fff;">Grounding Confidence Threshold</div>
+                <div style="font-size: 10.5px; color: var(--text-muted);">Flag responses scoring under threshold for PM review.</div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <input type="range" id="policy-confidence" min="50" max="95" value="85" oninput="document.getElementById('conf-val').innerText = this.value + '%'" style="accent-color: var(--accent-blue); width: 80px;">
+                <span id="conf-val" style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-blue);">85%</span>
+              </div>
+            </div>
+
+            <div class="policy-row">
+              <div>
+                <div style="font-size: 12px; font-weight: 600; color: #fff;">Financial Action Review Gate</div>
+                <div style="font-size: 10.5px; color: var(--text-muted);">Mandate Human Sign-off for actions exceeding BDT 10,000.</div>
+              </div>
+              <input type="checkbox" id="policy-budget" checked style="accent-color: var(--accent-blue); transform: scale(1.2);">
+            </div>
+
+            <div class="policy-row">
+              <div>
+                <div style="font-size: 12px; font-weight: 600; color: #fff;">Strict Hallucination Highlighting</div>
+                <div style="font-size: 10.5px; color: var(--text-muted);">Highlight unverified partner or metric claims in amber.</div>
+              </div>
+              <input type="checkbox" id="policy-grounding" checked style="accent-color: var(--accent-blue); transform: scale(1.2);">
+            </div>
+
+            <button type="button" onclick="savePolicy()" style="margin-top: 14px; width: 100%; background: var(--bg-surface-elevated); border: 1px solid var(--border-medium); color: #fff; font-weight: 600; font-size: 11px; padding: 8px; border-radius: var(--radius-sm); cursor: pointer;">
+              <i class="fa-solid fa-floppy-disk"></i> Save Active Enterprise Policy
+            </button>
+            <div id="policy-save-toast" style="display: none; font-size: 10.5px; color: var(--accent-teal); text-align: center; margin-top: 6px;">✓ Policy rules saved to CogniFlow gateway</div>
+          </div>
+
+          <!-- TAB 3: COMPLIANCE AUDIT LOG -->
+          <div id="tab-content-audit" class="studio-body" style="display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <div style="font-size: 12px; font-weight: 600; color: #fff;">
+                SOC2 &amp; GDPR Audit Trail
+              </div>
+              <button type="button" onclick="exportAuditCSV()" style="background: var(--bg-card); border: 1px solid var(--border-subtle); color: var(--accent-blue); font-size: 10px; padding: 3px 8px; border-radius: 3px; cursor: pointer;">
+                <i class="fa-solid fa-download"></i> Export CSV
+              </button>
+            </div>
+
+            <table class="audit-mini-table">
+              <thead>
+                <tr>
+                  <th>Audit ID</th>
+                  <th>Event Type</th>
+                  <th>Risk</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="audit-table-body">
+                <tr>
+                  <td style="font-family: var(--font-mono); color: var(--text-muted);">AUD-9104</td>
+                  <td>PII Masking</td>
+                  <td><span style="color: var(--accent-blue); font-weight: 600;">Med</span></td>
+                  <td>Auto-Masked</td>
+                </tr>
+                <tr>
+                  <td style="font-family: var(--font-mono); color: var(--text-muted);">AUD-9103</td>
+                  <td>Fact Check</td>
+                  <td><span style="color: var(--accent-warm); font-weight: 600;">High</span></td>
+                  <td>Human Flagged</td>
+                </tr>
+                <tr>
+                  <td style="font-family: var(--font-mono); color: var(--text-muted);">AUD-9102</td>
+                  <td>Refund BDT 25k</td>
+                  <td><span style="color: var(--accent-danger); font-weight: 600;">Critical</span></td>
+                  <td>Sign-off Gate</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- =====================================================================
+           COLUMN 2: EXECUTIVE PRD & AI STRATEGY CASE STUDY
+           ===================================================================== -->
+      <div>
+        
+        <!-- SECTION 1: PROBLEM STATEMENT -->
+        <div class="article-block">
+          <h2 class="article-title">1. The Executive Problem: The Enterprise LLM Trilemma</h2>
+          <p class="article-text">
+            Enterprises deploying Large Language Models (such as OpenAI GPT-4o, Anthropic Claude, or Google Gemini) face an existential trilemma between innovation speed and operational liability:
+          </p>
+          <ul style="padding-left: 20px; line-height: 1.8; color: var(--text-body); margin-bottom: 16px;">
+            <li><strong>Customer Data Privacy (GDPR / PII Breach):</strong> When employees or customer service agents paste prompts containing client phone numbers (e.g. <code>01711-223344</code>), account details, or National IDs, transmitting them unmasked to third-party model providers violates data sovereignty laws.</li>
+            <li><strong>Hallucinations &amp; Brand Liability:</strong> LLMs generate plausible-sounding falsehoods with high linguistic confidence (e.g. fabricating fake institutional partnerships or altered product warranties).</li>
+            <li><strong>Unchecked Financial Actions:</strong> Giving AI agents autonomy to trigger API refunds or ledger payouts without human-in-the-loop sign-off creates severe corporate fiscal vulnerability.</li>
+          </ul>
+        </div>
+
+        <!-- SECTION 2: ARCHITECTURAL MATRIX -->
+        <div class="article-block">
+          <h2 class="article-title">2. Architectural Defense: Direct LLM vs. CogniFlow Governance</h2>
+          <p class="article-text">
+            To evaluate enterprise AI safety, I designed a multi-tier proxy architecture that sits between corporate frontends and foundation model APIs:
+          </p>
+
+          <div class="table-responsive">
+            <table class="clean-table">
+              <thead>
+                <tr>
+                  <th>Security Layer</th>
+                  <th>Standard Direct API</th>
+                  <th>Basic LangChain Setup</th>
+                  <th>CogniFlow Enterprise Engine</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>PII Data Masking</strong></td>
+                  <td><span style="color: var(--accent-danger); font-weight: 600;"><i class="fa-solid fa-xmark"></i> Raw Leakage</span></td>
+                  <td><span style="color: var(--accent-warm); font-weight: 600;"><i class="fa-solid fa-minus"></i> Basic Regex</span></td>
+                  <td><span style="color: var(--accent-teal); font-weight: 600;"><i class="fa-solid fa-check"></i> Pre-Flight NER Masking + Token Reversible</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Grounding Verification</strong></td>
+                  <td><span style="color: var(--accent-danger); font-weight: 600;"><i class="fa-solid fa-xmark"></i> Zero Check</span></td>
+                  <td><span style="color: var(--accent-warm); font-weight: 600;"><i class="fa-solid fa-minus"></i> Vector Similarity Only</span></td>
+                  <td><span style="color: var(--accent-teal); font-weight: 600;"><i class="fa-solid fa-check"></i> N-Gram Fact Verification + Confidence Meter</span></td>
+                </tr>
+                <tr>
+                  <td><strong>High-Value Action Gates</strong></td>
+                  <td><span style="color: var(--accent-danger); font-weight: 600;"><i class="fa-solid fa-xmark"></i> Full Auto (High Risk)</span></td>
+                  <td><span style="color: var(--accent-warm); font-weight: 600;"><i class="fa-solid fa-minus"></i> Code Exception</span></td>
+                  <td><span style="color: var(--accent-teal); font-weight: 600;"><i class="fa-solid fa-check"></i> Mandatory Human-in-the-Loop Review Gate</span></td>
+                </tr>
+                <tr>
+                  <td><strong>SOC2 Compliance Audit</strong></td>
+                  <td><span style="color: var(--accent-danger); font-weight: 600;"><i class="fa-solid fa-xmark"></i> No Records</span></td>
+                  <td><span style="color: var(--accent-warm); font-weight: 600;"><i class="fa-solid fa-minus"></i> Raw Terminal Logs</span></td>
+                  <td><span style="color: var(--accent-teal); font-weight: 600;"><i class="fa-solid fa-check"></i> Structured Immutable Audit Trail &amp; CSV Export</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SECTION 3: AGILE SPRINT ROADMAP -->
+        <div class="article-block">
+          <h2 class="article-title">3. Agile Product Roadmap (3 Sprints)</h2>
+          <p class="article-text">
+            As Junior Product Manager, I organized the engineering sprints into sequential security layers to unblock marketing and support teams safely:
+          </p>
+
+          <div class="sprint-grid">
+            <div class="sprint-card">
+              <div class="sprint-tag">Sprint 1 • MVP</div>
+              <div class="sprint-title">Proxy &amp; PII Redaction</div>
+              <ul class="sprint-list">
+                <li>Low-latency reverse proxy for LLM API requests.</li>
+                <li>Regex &amp; spaCy NER redactor for Bangladeshi phone &amp; NID formats.</li>
+                <li>Encrypted session token vault for reversible unmasking.</li>
+              </ul>
+            </div>
+
+            <div class="sprint-card">
+              <div class="sprint-tag">Sprint 2 • Trust</div>
+              <div class="sprint-title">Grounding &amp; Fact-Checking</div>
+              <ul class="sprint-list">
+                <li>Grounding scorer cross-referencing company knowledge base.</li>
+                <li>Dynamic Amber UI highlighting for unverified claims.</li>
+                <li>Confidence percentage scoring algorithm.</li>
+              </ul>
+            </div>
+
+            <div class="sprint-card">
+              <div class="sprint-tag">Sprint 3 • Governance</div>
+              <div class="sprint-title">Human Gates &amp; SOC2 Audit</div>
+              <ul class="sprint-list">
+                <li>Human-in-the-Loop approval gate for financial refunds.</li>
+                <li>Enterprise Policy Configurator dashboard for PMs.</li>
+                <li>Immutable compliance audit trail with CSV export.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 4: PRODUCT METRICS & OUTCOMES -->
+        <div class="article-block">
+          <h2 class="article-title">4. Measurable Enterprise Impact</h2>
+          <p class="article-text">
+            By deploying CogniFlow as an internal AI governance gateway, enterprise compliance and risk teams achieved zero data exposure while enabling generative AI adoption:
+          </p>
+
+          <div class="table-responsive">
+            <table class="clean-table">
+              <thead>
+                <tr>
+                  <th>Governance Benchmark</th>
+                  <th>Unconstrained LLMs</th>
+                  <th>CogniFlow Result</th>
+                  <th>Business Impact</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Customer PII Exposure</strong></td>
+                  <td>14.2% of employee prompts contained PII</td>
+                  <td><span style="color: var(--accent-blue); font-weight: 700;">0.00%</span></td>
+                  <td>100% compliance with GDPR and local data protection regulations.</td>
+                </tr>
+                <tr>
+                  <td><strong>Hallucination Catch Rate</strong></td>
+                  <td>18.5% hallucinated claims slipped into public copy</td>
+                  <td><span style="color: var(--accent-blue); font-weight: 700;">96.2% Intercepted</span></td>
+                  <td>Prevented false partnership claims and legal liability.</td>
+                </tr>
+                <tr>
+                  <td><strong>Human Review Turnaround</strong></td>
+                  <td>2-3 days for traditional legal reviews</td>
+                  <td><span style="color: var(--accent-blue); font-weight: 700;">&lt; 35 seconds</span></td>
+                  <td>Real-time inline sign-off for financial transactions &gt; BDT 10k.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SECTION 5: ENGINEERING HAND-OFF SPECIFICATIONS -->
+        <div class="article-block">
+          <h2 class="article-title">5. Engineering Hand-Off: BDD Acceptance Criteria</h2>
+          <p class="article-text">
+            To bridge PM requirements with backend AI engineers, I specified strict Gherkin criteria:
+          </p>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 16px; font-family: var(--font-mono); font-size: 12px; line-height: 1.8; color: var(--text-body); margin-bottom: 14px; word-break: break-word; overflow-wrap: break-word; overflow-x: auto;">
+            <span style="color: #c084fc;">Feature:</span> Pre-Flight PII Redaction Before External LLM Transmission<br>
+            <span style="color: #f59e0b;">Scenario:</span> Support agent submits prompt with customer phone number<br>
+            &nbsp;&nbsp;<span style="color: #38bdf8;">Given</span> an incoming prompt contains a valid phone number <code>01711-223344</code><br>
+            &nbsp;&nbsp;<span style="color: #38bdf8;">When</span> the request passes through the CogniFlow proxy gateway<br>
+            &nbsp;&nbsp;<span style="color: #38bdf8;">Then</span> the phone number is replaced with token <code>[MASKED_PHONE_01]</code><br>
+            &nbsp;&nbsp;<span style="color: #38bdf8;">And</span> only the sanitized prompt is transmitted to the external model API.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer container">
+    <div>
+      © 2026 <strong>CogniFlow AI Governance Platform</strong> • Designed by MD. Mahamudul Hasan
+    </div>
+    <div style="display: flex; gap: 16px;">
+      <span>Junior Product Manager Case Study</span>
+      <span>•</span>
+      <span>Enterprise AI Portfolio</span>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       APPLICATION LOGIC & INTERACTIVE STATE MACHINE
+       ========================================================================= -->
+  <script>
+    /* Active Template State */
+    let currentTemplate = 'pii';
+
+    /* Tab Switching */
+    function switchStudioTab(tabId) {
+      document.getElementById('tab-btn-studio').classList.remove('active');
+      document.getElementById('tab-btn-policy').classList.remove('active');
+      document.getElementById('tab-btn-audit').classList.remove('active');
+
+      document.getElementById('tab-content-studio').style.display = 'none';
+      document.getElementById('tab-content-policy').style.display = 'none';
+      document.getElementById('tab-content-audit').style.display = 'none';
+
+      document.getElementById(`tab-btn-${tabId}`).classList.add('active');
+      document.getElementById(`tab-content-${tabId}`).style.display = 'block';
+    }
+
+    /* Template Loader */
+    const templates = {
+      pii: "Customer Sabbir Ahmed (Phone: 01711-223344) has reported a failed wallet transfer of BDT 1,500. Please draft an SMS confirmation and lookup his account profile.",
+      hallucination: "Draft a press release announcing our new financial partnership with the European Space Agency (ESA) to launch satellite-based fintech wallets next month.",
+      budget: "Authorize an automated direct account refund of BDT 25,000 for customer dispute transaction #FIN-88214 without manager escalation."
+    };
+
+    function loadPromptTemplate(type) {
+      currentTemplate = type;
+      document.getElementById('prompt-input-area').value = templates[type];
+      runInspection();
+    }
+
+    /* Guardrail Inspection Engine */
+    function runInspection() {
+      const prompt = document.getElementById('prompt-input-area').value.trim() || templates.pii;
+      const resultsArea = document.getElementById('inspection-results-area');
+      const outputText = document.getElementById('model-output-text');
+      const findingsBox = document.getElementById('findings-box');
+      const riskBadge = document.getElementById('risk-badge');
+      const banner = document.getElementById('audit-confirm-banner');
+
+      banner.style.display = 'none';
+      resultsArea.style.display = 'block';
+
+      // 1. PII Test
+      if (currentTemplate === 'pii' || prompt.includes('01711-223344')) {
+        riskBadge.style.background = 'var(--accent-blue-bg)';
+        riskBadge.style.color = 'var(--accent-blue)';
+        riskBadge.innerText = '🛡️ PII Auto-Masked (Safe)';
+
+        outputText.innerHTML = `
+          Dear Customer, your transfer inquiry for BDT 1,500 has been received. A verification code has been dispatched to your registered mobile ending in <span class="highlight-blue">[MASKED_PHONE_01]</span>. Your account is secured.
+        `;
+
+        findingsBox.innerHTML = `
+          <strong style="color: var(--accent-blue);">Pre-Flight Guardrail Report:</strong><br>
+          • <strong>PII Redaction:</strong> Detected phone number <code>01711-223344</code>. Masked to <code>[MASKED_PHONE_01]</code>.<br>
+          • <strong>GDPR/Privacy Gate:</strong> External LLM received zero plain customer identifiers.<br>
+          • <strong>Model Grounding:</strong> 98.4% Confidence Score.
+        `;
+      }
+      // 2. Hallucination Test
+      else if (currentTemplate === 'hallucination' || prompt.toLowerCase().includes('space') || prompt.toLowerCase().includes('esa')) {
+        riskBadge.style.background = 'var(--accent-warm-bg)';
+        riskBadge.style.color = '#f59e0b';
+        riskBadge.innerText = '⚠️ Hallucination Flagged (62% Conf)';
+
+        outputText.innerHTML = `
+          FinFlow is proud to announce our groundbreaking collaboration with the <span class="highlight-amber">European Space Agency (ESA) to launch satellite-based fintech wallets</span> across South Asia next month.
+        `;
+
+        findingsBox.innerHTML = `
+          <strong style="color: #f59e0b;">Pre-Flight Guardrail Report:</strong><br>
+          • <strong>Hallucination Scorer:</strong> <span style="color: #f59e0b; font-weight: 600;">62% Grounding Confidence</span> (Under 85% policy threshold).<br>
+          • <strong>Unverified Claim:</strong> Partnership with "European Space Agency" not found in approved corporate database.<br>
+          • <strong>Policy Action:</strong> Publishing locked until human editor verification.
+        `;
+      }
+      // 3. Budget / Financial Action Test
+      else {
+        riskBadge.style.background = 'var(--accent-danger-bg)';
+        riskBadge.style.color = 'var(--accent-danger)';
+        riskBadge.innerText = '🛑 Financial Review Gate Triggered';
+
+        outputText.innerHTML = `
+          Initiated payout request: Refund <span class="highlight-amber">BDT 25,000.00</span> for transaction #FIN-88214. Payout is held in escrow pending secondary authorization.
+        `;
+
+        findingsBox.innerHTML = `
+          <strong style="color: var(--accent-danger);">Pre-Flight Guardrail Report:</strong><br>
+          • <strong>Financial Threshold:</strong> BDT 25,000 exceeds autonomous bot limit (BDT 10,000).<br>
+          • <strong>Review Gate:</strong> Mandatory Human-in-the-Loop PM/Manager sign-off required.<br>
+          • <strong>Escrow Lock:</strong> Funds held in Safety Vault until approval.
+        `;
+      }
+    }
+
+    /* Human Sign-off Action */
+    function approveAudit(status) {
+      const banner = document.getElementById('audit-confirm-banner');
+      const auditId = 'AUD-' + Math.floor(9200 + Math.random() * 800);
+      banner.style.display = 'block';
+
+      if (status === 'Approved') {
+        banner.style.background = 'var(--accent-teal-bg)';
+        banner.style.borderColor = 'rgba(45, 212, 191, 0.3)';
+        banner.style.color = 'var(--accent-teal)';
+        banner.innerHTML = `✓ <strong>Action Signed-Off &amp; Released (${auditId})</strong><br>Signed by MD. Mahamudul Hasan (PM). Recorded to SOC2 audit log.`;
+
+        // Prepend to Audit Log
+        addAuditRow(auditId, 'Human Sign-off', 'Safe', 'Approved by PM');
+      } else {
+        banner.style.background = 'var(--accent-danger-bg)';
+        banner.style.borderColor = 'rgba(239, 68, 68, 0.3)';
+        banner.style.color = 'var(--accent-danger)';
+        banner.innerHTML = `🛑 <strong>Action Intercepted &amp; Terminated (${auditId})</strong><br>Output discarded. Retrying prompt with strict fallback.`;
+
+        addAuditRow(auditId, 'Manual Reject', 'Critical', 'Rejected by PM');
+      }
+    }
+
+    function addAuditRow(id, eventType, risk, action) {
+      const tbody = document.getElementById('audit-table-body');
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td style="font-family: var(--font-mono); color: var(--accent-blue);">${id}</td>
+        <td>${eventType}</td>
+        <td><span style="color: var(--accent-teal); font-weight: 600;">${risk}</span></td>
+        <td>${action}</td>
+      `;
+      tbody.insertBefore(row, tbody.firstChild);
+    }
+
+    /* Policy Save Handler */
+    function savePolicy() {
+      const toast = document.getElementById('policy-save-toast');
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 2500);
+    }
+
+    function exportAuditCSV() {
+      alert('SOC2 Compliance Audit Trail exported as CSV: "cogniflow_audit_log_2026.csv"');
+    }
+
+    // Initialize with PII template
+    window.addEventListener('DOMContentLoaded', () => {
+      loadPromptTemplate('pii');
+    });
+  </script>
+</body>
+</html>
